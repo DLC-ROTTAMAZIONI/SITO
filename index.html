@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D.L.C. Soccorso Stradale | Roma - Latina</title>
+    <style>
+        /* RESET & FONTS */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; }
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        
+        /* HEADER */
+        header {
+            background: #1a3e72;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { display: flex; align-items: center; }
+        .logo img { height: 60px; margin-right: 10px; }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 20px; }
+        nav ul li a { color: white; text-decoration: none; font-weight: bold; }
+        
+        /* HERO SLIDER */
+        .hero {
+            background: url('background.jpg') no-repeat center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            width: 100%;
+            padding: 0 20px;
+        }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
+        .btn {
+            display: inline-block;
+            background: #f39c12;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn:hover { background: #e67e22; }
+        
+        /* SERVIZI */
+        .servizi {
+            padding: 3rem 1rem;
+            text-align: center;
+            background: #f9f9f9;
+        }
+        .servizi h2 { margin-bottom: 2rem; font-size: 2rem; }
+        .servizi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .servizio-card {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .servizio-card i { font-size: 2.5rem; color: #1a3e72; margin-bottom: 1rem; }
+
+        /* ROTTAMAZIONI DETTAGLIO */
+        .dettaglio-rottamazione {
+            padding: 3rem 1rem;
+            background: white;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        .dettaglio-rottamazione h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .dettaglio-rottamazione ul {
+            list-style-type: disc;
+            margin-left: 2rem;
+        }
+
+        /* CHI SIAMO */
+        .chi-siamo {
+            padding: 3rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+        .chi-siamo img { width: 100%; border-radius: 5px; }
+
+        /* GALLERIA */
+        .galleria {
+            padding: 2rem 1rem;
+            background: #f9f9f9;
+        }
+        .galleria h2 { text-align: center; margin-bottom: 2rem; }
+        .grid-galleria {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .grid-galleria img { width: 100%; height: 200px; object-fit: cover; border-radius: 5px; }
+
+        /* CONTATTI */
+        .contatti {
+            padding: 3rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .contatti-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .form-contatto input, .form-contatto textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-contatto button { background: #1a3e72; color: white; border: none; padding: 10px 20px; cursor: pointer; }
+        .info-contatto { margin-top: 20px; }
+
+        /* FOOTER */
+        footer {
+            background: #1a3e72;
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .chi-siamo, .contatti-grid { grid-template-columns: 1fr; }
+            nav ul { flex-direction: column; }
+            nav ul li { margin: 5px 0; }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <img src="logo-finale.jpeg" alt="D.L.C. Soccorso Stradale">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#chi-siamo">Chi Siamo</a></li>
+                <li><a href="#servizi">Servizi</a></li>
+                <li><a href="#contatti">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SLIDER -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>CON NOI ROTTAMI E GUADAGNI!</h1>  
+            <p>Rottama con D.L.C. e oltre alla rottamazione gratuita e all'assistenza avrai diritto anche ad un buono carburante</p>
+            <p>Chiamaci subito: <a href="tel:3278531429" style="color: white; text-decoration: underline;">3514472091</a></p>
+            <p>Affidati a noi per rottamare gratuitamente la tua auto, ti seguiremo passo dopo passo e il tutto in maniera gratuita</p>  
+            <a href="tel:3514472091" class="btn">CHIAMA ORA</a>
+        </div>
+    </section>
+
+    <!-- SERVIZI -->
+    <section class="servizi" id="servizi">
+        <h2>I Nostri Servizi</h2>
+        <div class="servizi-grid">
+            <div class="servizio-card">
+                <i class="fas fa-car-crash"></i>
+                <h3>Rottamazioni Auto/Scooter</h3>
+                <p>Gratis per auto, a partire da 30€ per scooter</p>
+            </div>
+            <div class="servizio-card">
+                <i class="fas fa-truck-moving"></i>
+                <h3>Assistenza Rottamazione</h3>
+                <p>Non perdere tempo, non avere paura, pensiamo noi a tutti i problemi burocratici </p>
+            </div>
+            <div class="servizio-card">
+                <i class="fas fa-road"></i>
+                <h3>Soccorso Stradale 24/7</h3>
+                <p>Guasti, incidenti, batteria scarica</p>
+            </div>
+            <div class="servizio-card">
+                <i class="fas fa-car"></i>
+                <h3>Incentivi per auto nuove</h3>
+                <p>Per le auto con meno di 16 anni potreste aver diritto ad un bonus di 100 euro, scriveteci per saperlo!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DETTAGLIO ROTTAMAZIONE -->
+    <section class="dettaglio-rottamazione">
+        <h2> Rottamazioni auto e scooter</h2>
+        <p>Offriamo un servizio di rottamazione semplice, sicuro e trasparente, occupandoci noi di tutte le pratiche burocratiche. Con la rottamazione avete diritto ad un buono carburante! (Buoni carburanti dal valore minimo di 5€ e dal valore massimo di 20€ saranno distribuiti casualmente)</p>
+
+        <p> <strong>Auto e mezzi più grandi:</strong>  La rottamazione è completamente gratuita, inclusi ritiro e cancellazione al PRA.</p>
+
+        <p> <strong>Scooter e ciclomotori:</strong>  La rottamazione ha un costo a partire da 30€, in base al tipo di veicolo e alla zona.</p>
+
+        <p>📄 <strong>Documenti richiesti per la rottamazione:</strong></p>
+        <ul>
+            <li>Certificato di proprietà (CDP)</li>
+            <li>Libretto di circolazione</li>
+            <li>Fotocopia del documento d’identità del proprietario</li>
+            <li>Fotocopia del codice fiscale</li>
+        </ul>
+        <p>Il tutto viene gestito in maniera rapida e professionale, nel rispetto delle normative ambientali vigenti. Affidati a noi per rottamare in tranquillità e senza sorprese!</p>
+    </section>
+
+    <!-- CHI SIAMO -->
+    <section class="chi-siamo" id="chi-siamo">
+        <div>
+            <h2>Chi Siamo</h2>
+            <p>Siamo un’azienda dinamica e affidabile, specializzata nei servizi di soccorso stradale e rottamazione, attiva 24 ore su 24, 7 giorni su 7. Fondata e guidata da professionisti con anni di esperienza nel settore, la nostra realtà nasce con un obiettivo chiaro: offrire un intervento rapido, sicuro e trasparente in ogni situazione di emergenza su strada. Ci distinguiamo per professionalità, puntualità e attenzione al cliente. Che si tratti di un guasto improvviso, un incidente o la necessità di trasportare il tuo veicolo in tutta sicurezza, puoi contare su di noi. Ogni intervento viene gestito con mezzi moderni e attrezzature all’avanguardia, nel pieno rispetto delle normative vigenti. Mettiamo al primo posto le persone, prima ancora dei veicoli: per questo siamo sempre disponibili, con un servizio cortese e tempestivo, pronto a raggiungerti ovunque tu sia. </p>
+            <p>Professionalità, puntualità e attenzione al cliente sono i nostri pilastri.</p>
+        </div>
+        <div>
+            <img src="soccorso.jpg" alt="Team D.L.C.">
+        </div>
+    </section>
+
+    <!-- GALLERIA -->
+    <section class="galleria">
+        <h2>Di Cosa Ci Occupiamo</h2>
+        <div class="grid-galleria">
+            <!-- Usa le immagini locali senza percorso aggiuntivo, dato che sono nella stessa cartella del file HTML -->
+            <img src="intervento1.jpg" alt="Intervento 1">
+            <img src="intervento2.jpg" alt="Intervento 2">
+            <img src="intervento3.jpg" alt="Intervento 3">
+            <img src="intervento4.jpg" alt="Intervento 4">
+            <img src="intervento5.jpg" alt="Intervento 5">
+            <img src="intervento6.jpg" alt="Intervento 6">
+        </div>  
+    </section>
+
+    <!-- CONTATTI -->
+<section class="contatti" id="contatti">
+    <h2>Contatti</h2>
+    <div class="contatti-grid">
+        <div>
+            <form class="form-contatto" action="https://formspree.io/f/xqaqgblb" method="POST">
+                <input type="text" name="nome" placeholder="Nome" required>
+                <input type="tel" name="telefono" placeholder="Telefono" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="messaggio" placeholder="Messaggio" rows="5" required></textarea>
+                <button type="submit" class="btn">INVIA RICHIESTA</button>
+            </form>
+        </div>
+        <div>
+            <div class="map">
+               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887.2062490064496!2d12.7748!3d41.6868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1325b4f00a2962ef%3A0x40988a3f3e5ec96!2sVelletri%2C%20Metropolitan%20City%20of%20Rome%20Capital%2C%20Italy!5e0!3m2!1sit!2sit!4v1714248720000!5m2!1sit!2sit" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="info-contatto">
+                <p><i class="fas fa-phone"></i> <a href="tel:3278531429">3514472091 – 3278531429</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:dlc.amministrazione@gmail.com">dlc.amministrazione@gmail.com</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> Operativi a Roma e Latina</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 D.L.C. Soccorso Stradale | P.IVA: XXXXXXXX | 3514472091 – 3278531429 </p>
+    </footer>
+</body>
+</html>
